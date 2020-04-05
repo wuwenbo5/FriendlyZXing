@@ -1,4 +1,4 @@
-package com.ff.zxing.utils;
+package com.ff.qrcode.library.utils;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -19,8 +19,8 @@ import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.TypedValue;
 
+import com.ff.qrcode.R;
 import com.ff.qrcode.library.camera.CameraManager;
-import com.ff.zxing.R;
 import com.google.zxing.BinaryBitmap;
 import com.google.zxing.ChecksumException;
 import com.google.zxing.DecodeHintType;

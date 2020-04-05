@@ -27,8 +27,8 @@ import com.ff.qrcode.library.camera.CameraManager;
 import com.ff.qrcode.library.decode.DecodeThread;
 import com.ff.qrcode.library.utils.CaptureActivityHandler;
 import com.ff.qrcode.library.utils.InactivityTimer;
-import com.ff.zxing.utils.BeepManager;
-import com.ff.zxing.utils.Utils;
+import com.ff.qrcode.library.utils.BeepManager;
+import com.ff.qrcode.library.utils.Utils;
 import com.google.zxing.Result;
 
 import java.io.IOException;
@@ -89,9 +89,9 @@ public class CaptureActivity extends Activity implements CaptureCallback, Surfac
         // 线性动画 Interpolator 匀速
         objectAnimator.setInterpolator(new LinearInterpolator());
         // 动画重复次数
-        objectAnimator.setRepeatCount(ObjectAnimator.INFINITE);
+        objectAnimator.setRepeatCount(Integer.MAX_VALUE);
         // 动画如何重复，从下到上，还是重新开始从上到下
-        objectAnimator.setRepeatMode(ValueAnimator.RESTART);
+        objectAnimator.setRepeatMode(ValueAnimator.REVERSE);
     }
 
     private void initEvent() {

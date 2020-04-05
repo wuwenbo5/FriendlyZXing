@@ -10,7 +10,7 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Toast;
 
-import com.ff.zxing.utils.Utils;
+import com.ff.qrcode.library.utils.Utils;
 
 public class MainActivity extends Activity {
 

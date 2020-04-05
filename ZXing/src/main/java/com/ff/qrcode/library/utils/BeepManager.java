@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ff.zxing.utils;
+package com.ff.qrcode.library.utils;
 
 import android.app.Activity;
 import android.content.Context;
@@ -26,7 +26,7 @@ import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.ff.zxing.R;
+import com.ff.qrcode.R;
 
 import java.io.Closeable;
 import java.io.IOException;
@@ -46,11 +46,16 @@ public class BeepManager implements MediaPlayer.OnCompletionListener, MediaPlaye
 	private MediaPlayer mediaPlayer;
 	private boolean playBeep;
 	private boolean vibrate;
+	private int beepResId;
 
-	public BeepManager(Activity activity) {
+	public BeepManager(Activity activity,int beepResId) {
 		this.activity = activity;
 		this.mediaPlayer = null;
+		this.beepResId = beepResId;
 		updatePrefs();
+	}
+	public BeepManager(Activity activity) {
+		this(activity, R.raw.beep);
 	}
 
 	private synchronized void updatePrefs() {
@@ -94,7 +99,7 @@ public class BeepManager implements MediaPlayer.OnCompletionListener, MediaPlaye
 		mediaPlayer.setOnCompletionListener(this);
 		mediaPlayer.setOnErrorListener(this);
 		try {
-			AssetFileDescriptor file = activity.getResources().openRawResourceFd(R.raw.beep);
+			AssetFileDescriptor file = activity.getResources().openRawResourceFd(beepResId);
 			try {
 				mediaPlayer.setDataSource(file.getFileDescriptor(), file.getStartOffset(), file.getLength());
 			} finally {
